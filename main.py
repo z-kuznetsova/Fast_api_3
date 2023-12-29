@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, Request, HTTPException
+from fastapi import FastAPI, APIRouter
 from models.good import User, Task
 from models.schemas import UserCreate, UserUpdate, UserResponse, TaskCreateWithOwner, TaskUpdate, TaskResponse
 from db import create_db_connection

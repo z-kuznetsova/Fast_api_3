@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine, text
-import asyncio
-from sqlalchemy.ext.asyncio import create_async_engine
-from models.good import Base, User
+
+from models.good import Base
 from dotenv import load_dotenv
 import os
 from sqlalchemy.orm import sessionmaker
@@ -19,6 +18,7 @@ ur_p = f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTG
 engine = create_engine(ur_p, echo=True)
 
 def create_db_connection():
+
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
     return SessionLocal()
 
