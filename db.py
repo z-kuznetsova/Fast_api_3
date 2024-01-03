@@ -1,5 +1,4 @@
-from sqlalchemy import create_engine, text
-
+from sqlalchemy import create_engine
 from models.good import Base
 from dotenv import load_dotenv
 import os

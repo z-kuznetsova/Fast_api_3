@@ -78,6 +78,14 @@ def create_task(task: TaskCreateWithOwner):
     return new_task
 
 
+@router_tasks.put("/{task_id}")
+def update_task(task_id: int, task: TaskUpdate):
+    db = create_db_connection()
+    db.query(Task).filter(Task.id == task_id).update(task.dict())
+    db.commit()
+    return {"message": "Task updated successfully"}
+
+
 @router_tasks.delete("/{task_id}")
 def delete_task(task_id: int):
     db = create_db_connection()
